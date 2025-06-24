@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Livros</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='lista_livros.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h2>Livros Cadastrados</h2>
+
+    <form method="get">
+        <input type="text" name="titulo" placeholder="Buscar por título">
+        <input type="text" name="autor" placeholder="Buscar por autor">
+        <input type="text" name="genero" placeholder="Buscar por gênero">
+        <input type="text" name="editora" placeholder="Buscar por editora">
+        <input type="submit" value="Buscar">
+    </form>
+    <br>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Gênero</th>
+            <th>Editora</th>
+            <th>Ações</th>
+        </tr>
+        {% for livro in livros %}
+        <tr>
+            <td>{{ livro.titulo }}</td>
+            <td>{{ livro.autor }}</td>
+            <td>{{ livro.genero }}</td>
+            <td>{{ livro.editora }}</td>
+            <td>
+                <a href="/editar/{{ livro.id }}">Editar</a> |
+                <a href="/deletar/{{ livro.id }}" onclick="return confirm('Deseja deletar este livro?')">Deletar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/menu">Voltar ao menu</a>
+    </div>
+</body>
+</html>

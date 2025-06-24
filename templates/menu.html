@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu da Biblioteca</title>
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='images/gelo.jpeg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+        .menu-container {
+            /* background-color: rgba(255, 255, 255, 0.85); */
+            border-radius: 12px;
+            padding: 40px;
+            margin: 100px auto;
+            max-width: 600px;
+            /* box-shadow: 0 0 15px rgba(0,0,0,0.3); */
+            text-align: center;
+        }
+
+        .menu-container h1 {
+            color: white;
+            margin-bottom: 40px;
+            font-size: 50px;
+            font-weight: 700;
+            text-shadow: 2px 2px 3px black;
+        }
+
+        .menu-container a {
+            display: block;
+            margin: 15px auto;
+            width: 80%;
+            max-width: 300px;
+            padding: 15px;
+            background-color: #5268f5;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-container a:hover {
+            background-color: #414170;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <h1>📚 Biblioteca Iceberg</h1>
+        <a href="/cadastrar">Cadastrar Novo Livro</a>
+        <a href="/livros">Listar Livros</a>
+        <a href="/cadastrar_autor">Cadastrar Autor</a>
+        <a href="/cadastrar_genero">Cadastrar Gênero</a>
+        <a href="/cadastrar_editora">Cadastrar Editora</a>
+    </div>
+</body>
+</html>

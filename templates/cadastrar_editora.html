@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastrar Editora</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='formulario_simples.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h2>Cadastro de Editora</h2>
+    <form action="/cadastrar_editora" method="post">
+        <label for="nome">Nome da Editora:</label><br>
+        <input type="text" name="nome" required><br><br>
+        <input type="submit" value="Cadastrar Editora">
+    </form>
+    <br>
+    <a href="/menu">Voltar ao Menu</a>
+    </div>
+</body>
+</html>

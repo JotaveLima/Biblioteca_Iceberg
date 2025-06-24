@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Livro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='editar_livro.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h2>Editar Livro</h2>
+    <form action="/editar/{{ livro.id }}" method="post">
+        <label for="titulo">Título:</label><br>
+        <input type="text" name="titulo" value="{{ livro.titulo }}" required><br><br>
+
+        <label for="autor">Autor:</label><br>
+        <select name="autor" required>
+            {% for id, nome in autores %}
+            <option value="{{ id }}" {% if id == livro.idautor %}selected{% endif %}>{{ nome }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="genero">Gênero:</label><br>
+        <select name="genero" required>
+            {% for id, nome in generos %}
+            <option value="{{ id }}" {% if id == livro.idgenero %}selected{% endif %}>{{ nome }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label for="editora">Editora:</label><br>
+        <select name="editora" required>
+            {% for id, nome in editoras %}
+            <option value="{{ id }}" {% if id == livro.ideditora %}selected{% endif %}>{{ nome }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <input type="submit" value="Salvar Alterações">
+    </form>
+
+    <br>
+    <a href="/livros">Voltar para a lista</a>
+    </div>
+</body>
+</html>
